@@ -1,0 +1,118 @@
+#container
+{
+    border: 1px solid black;
+    display: table;
+    width: 100%;
+}
+#header
+{
+    display: table-header-group;
+}
+#header .col
+{
+    background-image: url(res/imag/images.png);
+    height: 10vh;
+    background-clip: padding-box;
+    padding: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#nav
+{
+    display: table-header-group;
+    background-color: rgb(234, 238, 236);
+}
+
+#nav .c2
+{
+    text-align: center;
+}
+#nav .col  ul
+{
+    list-style-type: none;
+}
+#nav .col li
+{
+    display: inline-block;
+    padding: 10px 10px;
+}
+#body
+{
+    display: table-row-group;
+}
+#body .row
+{
+    width: 100%;
+}
+#body  .c1
+{
+    width: 20%;
+    height: 60vh;
+    background-color: hsla(0, 11%, 77%, 0.548);
+}
+#body .c2
+{
+    width: 60%;
+    height: 60vh;
+}
+#body  .c3
+{
+    width: 20%;
+    height: 60vh;
+}
+#body #sec1
+{
+    height: 30%;
+    box-sizing: border-box;
+}
+#body #sec2
+{
+    height: 35%;
+    text-align: center;
+    box-sizing: border-box;
+}
+#body #sec3
+{
+    text-align: center;
+    box-sizing: border-box;
+}
+#body .c2 
+{
+    vertical-align: top;
+    background-color: rgba(145, 139, 139, 0.996);
+}
+#body .c2 p
+{
+    text-align: center;
+    color: white;
+}
+#body .c2 li
+{
+    color: white;
+    padding: 0px 5px;
+}
+#body .c3
+{
+    text-align: center;
+    background-color: bisque;
+}
+#footer
+{
+    display: table-footer-group;
+}
+#footer .col
+{
+    text-align: center;
+    height: 10vh;
+    box-sizing: border-box;
+    padding-top:3vh;
+    background-color: darkgrey;
+}
+.row
+{
+    display: table-row;
+}
+.col
+{
+    display: table-cell
+}

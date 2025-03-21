@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form</title>
+        <style>
+            input
+            {
+                padding: 3px;
+            }
+            div{
+                border: 2px solid sienna; 
+                padding: 10px;
+                 margin: 3px;
+            }
+            fieldset
+            {
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="Thankyou.html"  method="get"   target="_blank">
+            <div id="sec1" >
+                <input type="hidden"  name="User Id" value="222">
+
+                <label for="fName">First name</label>
+                <input id="fName"  type="text" name="my First Name"  required>
+
+                <label for="LName" >Last name</label>
+                <input id="LName" type="text" name="my Last Name"  required>
+
+                <label for="E" >Email</label>
+                <input id="E" type="email" name="my Email"  required>
+            </div>
+            <div id="sec2">
+                <label for="p1" >Password</label>
+                <input id="p1" type="password" name="password"  >
+
+                <label for="Rp1" >Repeat Password</label>
+                <input id="p1" type="password" name="R password"  >
+
+                <label for="BD">Birth Date (Date)</label>
+                <input id="BD" type="date"  name="Date" >
+            </div>
+            <div id="sec3">
+                <label for="file" >User Picture</label>
+                <input id="file" type="file" name="my pic"  >
+
+                <fieldset>
+                    <legend>Gender</legend>
+                    <input id="male" type="radio"  name="Gender" value="1">
+                    <label for="male">Male</label> <br>
+                    <input id="female" type="radio"  name="Gender" value="2">
+                    <label for="female">Female</label> <br>
+                </fieldset>
+
+                <select>
+                    Faculty 
+                    <option>Enginner</option>
+                    <option>Medic</option>
+                    <option>phara</option>
+                    <option>science</option>
+                </select>
+            </div>
+
+            <fieldset>
+                    <legend>interests</legend>
+                    <input id="Programming" type="checkbox"  name="interset 1" value="1" >
+                    <label for="Programming">Programming</label> <br>
+                    <input id="reading" type="checkbox"  name="interset 2" value="2">
+                    <label for="reading">reading</label> <br>
+                    <input id="swimming" type="checkbox"  name="interset 3" value="3">
+                    <label for="swimming">swimming</label> <br>
+            </fieldset>
+
+            <textarea  name="text "  cols="10" rows="10">
+
+            </textarea>
+            <br>
+            <input type="checkbox" value="1" name="terms" id="termsCond">
+            <label for="termsCond"><a href="terms_cond.html" target="_blank">I agreed to terms and condition</a></label>
+            <!-- sumbit and reset -->
+             <input  type="submit" value="submit">
+             <input type="reset" value="Clear">
+            <br>
+        </form>
+    </body>
+</html>
