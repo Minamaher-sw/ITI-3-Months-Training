@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="ex1_submit.html"  method="_get" target="_blank" id="form" >
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName"  required  name="UserName" placeholder="Enter Your Name"><br>
+         <span id="invalidname" style="display: none;">invalid Name</span>        <label for="email">Email</label>
+        <input type="email" id="email"  required  name="UserEmail"><br>
+
+        <label for="cities">City</label>
+        <select id="cities">
+            <option>Soahg</option>
+            <option>Cairo</option>
+            <option>alex</option>
+        </select><br>
+        <label for="pawword">pawword</label>
+        <input type="password" id="pawword" name="pawword"><br>
+
+        <label for="rPassword">Reapeat Pawword</label>
+        <input id="rPassword" name="rPassword"  type="password"> <br>
+
+        <input id="checK" name="check"  type="checkbox">
+        <label for="rPassword">I accept the terms conditions</label><br>
+
+        <input type="submit" value="register">
+    </form>
+
+    <script src="../JS/ex1.js"></script>
+</body>
+</html>
