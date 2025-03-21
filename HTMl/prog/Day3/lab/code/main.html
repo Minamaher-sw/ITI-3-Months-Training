@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title >lab day3</title>
+        <meta  http-equiv="refresh" content="30">  
+        <meta name="viewport"  content="width=device-width ; initia-scale=.1">
+        <link rel="stylesheet"  href="../CSS/css_main.css">
+
+        <style>
+            #loginform
+            {
+                color: rgb(20,70,60);
+            }
+            input[type=text]
+            {
+                background-color: yellow;
+            }
+
+            input[type=text]:focus
+            {
+                background-color: white;
+            }
+            .none-bullet-list
+            {
+                list-style-type: none;
+            }
+            .none-bullet-list a
+            {
+                background-color: pink;
+                color: red;
+                text-decoration: none;
+            }
+            .none-bullet-list a:hover
+            {
+                color: pink;
+                background-color: red;
+                text-decoration: none;
+            }
+            #content p
+            {
+                font-weight: bold;
+                font-size: 12px;
+                color: red;
+            }
+
+            #aboutus::after
+            {
+                content: "read this";
+                color: yellow;
+            }
+            /* table */
+            #abled-bordere
+            {
+                border: 1px solid black;
+                display: table-cell;
+                padding: 5px;
+            }
+            #aboutus
+            {
+                color: yellow;
+            }
+        </style>
+        <style>
+            #aboutus
+            {
+                color : red !important;
+            }
+        </style>
+      </head>
+    <body>
+        <div id="header">
+            <h2>this is the page header</h2>
+        </div>
+
+        <span id="linksbar" style="width: 25%; background-color: gray; float: left;">
+
+            <div id="loginform" style="color: rgb(20,70,60), ;">
+            <label for="in1">user name</label>
+            <input id="in1" type="text" >
+            <label for="in1">user name</label>
+            <input id="in2" type="password"><br>
+            <input type="checkbox">remember me
+            <br>
+            <input type="button" name="login" value="login">
+            </div>
+            <p>
+                <h3>site menu</h3>
+            </p>
+            <ul class="none-bullet-list">
+              <li><a href="#">link1</a></li>
+              <li><a href="#">link2</a></li>
+              <li><a href="#">link3</a></li>
+              <li><a href="#">link4</a></li>
+              <li><a href="#">link5</a></li>
+            </ul>
+        </span>
+         <span id="content" style=" width: 75%; background-color: pink; float: left;">
+            <div>
+                <h2>about us</h2>
+            </div>
+            <p id="aboutus">
+                Make the font weight bold, and font size 12px, for the paragraph that comes <br>
+                directly after (sibling) tag which is direct child for withid="content".
+            </p>
+            <div id="titles" >
+                <p id="abled-bordere">titl1</p>
+                <p id="abled-bordere">titl2</p>
+                <p id="abled-bordere">titl3</p>
+             </div>
+         </span>
+         <div style="clear: both;"></div>
+    </body>
+</html>
