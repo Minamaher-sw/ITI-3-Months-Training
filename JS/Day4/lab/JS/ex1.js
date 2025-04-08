@@ -1,14 +1,19 @@
 // c.	When the user focus in full name text, show blue border
 //  for the input (use element.style.border=”solid 1px blue”), c.	
 
+var check_valid ;
+var check_valid_2 ;
 let fullName = document.getElementById("fullName") ;
 let span =  document.getElementById("invalidname") ;
 let form =document.getElementById("form") ;
+
+let password = document.getElementById("password") ;
+let repeatPassword = document.getElementById("rPassword") ;
+let span2 = document.getElementById("invalidPaaword");
 fullName.onfocus =function ()
 {
     fullName.style.border ="solid 3px blue"
 }
-var check_valid ;
 
 fullName.onblur =function ()
 {
@@ -33,13 +38,12 @@ function check()
     }
 }
 form.onsubmit=function()
-{
-    console.log(check_valid);
-    if(check_valid == 1)
+{   
+    if(check_valid == 1 &&  check_valid_2 == 1)
     {
         form.submit() ;
     }
-    else if(check_valid == 0)
+    else if(check_valid == 0 || check_valid_2 == 0)
     {
         event.preventDefault() ;
     }
@@ -62,4 +66,33 @@ function display()
         document.getElementById("demo").innerHTML = "thank you : " + userName;
     }
 
+}
+
+// Bonus Repeat passsword
+
+repeatPassword.onblur =function()
+{
+    if(password.value != repeatPassword.value)
+    {
+        span2.setAttribute("style" , "display:block; color:red ;")
+        check_valid_2 = 0 ;
+    }
+    else if(password.value == repeatPassword.value)
+    {
+        span2.style.display="none" ;
+        check_valid_2 = 1 ;
+    }
+}
+password.onblur =function()
+{
+    if(password.value != repeatPassword.value)
+    {
+        span2.setAttribute("style" , "display:block; color:red ;")
+        check_valid_2 = 0 ;
+    }
+    else if(password.value == repeatPassword.value)
+    {
+        span2.style.display="none" ;
+        check_valid_2 = 1 ;
+    }
 }
