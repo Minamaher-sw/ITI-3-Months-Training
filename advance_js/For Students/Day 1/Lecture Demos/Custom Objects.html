@@ -1,0 +1,115 @@
+<!DocType HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <button id="b1"> Test</button>
+        <script>
+           var Person = function(name="Person", age= 18)
+           {
+               var id=0; //private member
+               setId(10);
+
+               this.name= name;
+               this.age= age;
+
+               this.display = function(){
+                   console.log ("Person Name: " + this.name + " ,Age:" + this.age);
+               };
+
+               function setId(_id) //private method
+               {
+                   id=_id;
+               }
+
+               this.getID= function(){
+                   return id;
+               };
+           };
+
+           var Student= function (track)
+           {
+               this.track=track;
+           };
+
+           
+
+           var p= new Person("abc", 30);
+           //console.log(p.name);
+           //console.log(p.age);
+           //console.log(p.id);
+           console.log(p.getID());
+
+           p.display();
+
+           p.age=20;
+           console.log(p.age);
+
+           Person.prototype.showName= function(){
+               console.log("My Name: "+ this.name);
+           };
+
+           Person.prototype.city="Assiut";
+
+           ////
+           var p2= new Person();
+           //console.log(p2.name + " , " + p2.age)
+           p2.display();
+           p2.showName();
+           p2.city= "Minia";
+           console.log(p2.city);
+
+           ////
+           var p3= new Person ("xyz", 99);
+           p3.address="xyz street";
+
+
+
+           console.log(p3.address); // Assiut
+           console.log(p2.address); //Undefined
+           ////////////
+           Student.prototype = new Person();// Student inherit Person;
+
+           var s= new Student("PD");
+           s.display();
+
+           Student.prototype.display= function(){
+            console.log ("Person Name: " + this.name + " ,Age:" + this.age + " ,Track: " + this.track);
+           };
+
+           s.name="ITI Student";
+           s.age= 33;
+
+           s.display();
+
+
+           ////////////
+           var course={
+               name: "JavaScript",
+               creditHours: 12,
+               show: function(){
+                   console.log("Course Name: " + this.name + " , Hours: " + this.creditHours)
+               }
+           }
+
+           console.log(course.name);
+           course.show();
+
+           ///////////////////////////////////
+           var x;
+
+           function test()
+           {
+               var x;
+               alert (x);// X inside function
+               alert (window.x)// gloabl x
+               y=10; //gloabl var // window.y=10;
+           }
+
+           //var globalVar; // window.gloablVar
+           //alert (globalVar)// alert (window.gloablVar)
+
+        </script>
+
+    </body>
+</html>

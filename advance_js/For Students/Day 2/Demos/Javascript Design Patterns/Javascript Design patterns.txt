@@ -1,0 +1,13 @@
+https://addyosmani.com/resources/essentialjsdesignpatterns/book/
+-------------------------------------------------------------
+https://www.joezimjs.com/javascript/javascript-design-patterns-singleton/
+https://www.joezimjs.com/javascript/javascript-design-patterns-bridge/
+https://www.joezimjs.com/javascript/javascript-design-patterns-composite/
+https://www.joezimjs.com/javascript/javascript-design-patterns-facade/
+https://www.joezimjs.com/javascript/javascript-design-patterns-adapter/
+https://www.joezimjs.com/javascript/javascript-design-patterns-decorator/
+https://www.joezimjs.com/javascript/javascript-design-patterns-factory/
+https://www.joezimjs.com/javascript/javascript-design-patterns-factory-part-2/
+https://www.joezimjs.com/javascript/javascript-design-patterns-observer/
+https://www.joezimjs.com/javascript/javascript-design-patterns-command/
+https://www.joezimjs.com/javascript/javascript-design-patterns-chain-of-responsibility/

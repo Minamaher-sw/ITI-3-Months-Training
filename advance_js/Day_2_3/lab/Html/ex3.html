@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var updateClickCount =(function(){
+            var counter=0 ;
+            return function()
+            {
+                ++counter ;
+                document.getElementById("spnCount").innerHTML = counter ;
+            }
+        })();
+    </script>
+    <button onclick="updateClickCount()">click me</button>
+
+    <div style="color: rgb(900,900,900);">you have </div>
+    <span id="spnCount">0</span>times !
+</body>
+</html>

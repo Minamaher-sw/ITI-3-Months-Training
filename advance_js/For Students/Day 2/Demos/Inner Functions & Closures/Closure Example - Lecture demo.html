@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title></title>
+		
+	</head>
+	<body>
+		<script>
+			function outer()
+			{
+				var x=5;
+				function inner()
+				{
+					var y=10;
+					return x*y;
+				}
+				//var z=inner();
+				//return z;
+
+				return inner;
+			}
+
+			var result= outer();
+			var result2= result();
+			console.log(result2);
+				
+		</script>
+		
+	</body>
+</html>

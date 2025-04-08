@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            var crs1= {name: "JS", hours: 30};
+            var crs2= {name: "Advances JS", hours: 18};
+
+            var Course= function(_name, _hours)
+            {
+                let courseObj= {name: _name, hours: _hours};
+                return courseObj;
+            }
+
+
+            var crs3= Course ("ES6", 12);
+            var crs4= Course ("Angular", 30);
+
+            console.log (crs3.name);
+        </script>
+    </body>
+</html>

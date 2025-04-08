@@ -1,0 +1,17 @@
+﻿will sentance
+---------------
+1- JavaScript: The Hard Parts
+https://frontendmasters.com/courses/javascript-hard-parts
+
+2 - JavaScript: The New Hard Parts
+https://frontendmasters.com/courses/javascript-new-hard-parts
+
+3 - JavaScript: The Hard Parts of Object Oriented JavaScript
+https://frontendmasters.com/courses/object-oriented-js/
+-----------------------------------------------
+Douglas Crockford
+------------------
+
+https://crockford.com/
+https://crockford.com/javascript/
+https://www.youtube.com/playlist?list=PLEzQf147-uEpvTa1bHDNlxUL2klHUMHJu

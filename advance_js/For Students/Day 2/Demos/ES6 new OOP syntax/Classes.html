@@ -1,0 +1,205 @@
+<!DOCType html>
+<html>
+    <head>
+		<script>
+			/*
+				Classes are in fact "special functions", 
+				and just as you can define function expressions and function declarations, 
+				the class syntax has two components: class expressions and class declarations.
+				
+				The constructor method is a special method for creating and initializing an object created with a class. There can only be one special method with the name "constructor" in a class. A SyntaxError will be thrown if the class contains more than one occurrence of a constructor method.
+
+				A constructor can use the super keyword to call the constructor of a parent class.
+			*/
+
+			//Class declarations
+			class Rect {
+			  constructor(height, width) { //Class constructor
+					this.height = height;
+					this.width = width;
+				}
+				
+			   getArea() { //class method
+					return(this.height*this.width);
+				}
+				
+				//this.getArea=function(){}
+			}
+			/*
+				An important difference between function declarations and class declarations is that function declarations are hoisted and class declarations are not. 
+				You first need to declare your class and then access it
+			*/
+			var p = new Rect(5,5);
+			console.log(p.getArea());
+			
+			//--------------------------------------------------------------------------//
+			
+			//Class expressions
+			// unnamed
+			var Rectangle2 = class {
+			  constructor(height, width) {
+				this.height = height;
+				this.width = width;
+			  }
+			};
+
+			// named
+			class Rectangle3 {
+			  constructor(height, width) {
+				this.height = height;
+				this.width = width;
+			  }
+			};
+			//---------------------------------------------------------------//
+			//Prototype methods
+			class Rectangle {
+			  constructor(height, width) {
+					this.height = height;
+					this.width = width;
+					//this.area=this.height*this.width; 
+					//User can get and SET in property
+			  }
+			  
+			    get rectWidth() {
+					return this.width;
+					//return this.calcArea();
+				}
+				
+				set rectWidth(w) {
+					this.width=w;
+					
+			  }
+
+			  calcArea() {
+					return this.height * this.width;
+			  }
+			}
+
+			const square = new Rectangle(10, 10);
+			
+			square.rectWidth=15;
+			console.log("square.width: " +square.width);
+			console.log("square.rectWidth: " +square.rectWidth);
+
+			
+			console.log("square.calcArea(): "+ square.calcArea());
+			
+			//--------------------------------------------------//
+			//Static methods
+			/*
+				The static keyword defines a static method for a class. Static methods are called without instantiating their class and are also cannot be called through a class instance. Static methods are often used to create utility functions for an application.
+			*/
+			class Point {
+			  constructor(x, y) {
+				this.x = x;
+				this.y = y;
+			  }
+
+			  static distance(a, b) {
+					let dx = a.x - b.x;
+					let dy = a.y - b.y;
+
+					return Math.sqrt(dx*dx + dy*dy);
+				}
+				//static field
+				static z = 3;
+
+			}
+
+			var p1 = new Point(5, 5);
+			var p2 = new Point(10, 10);
+
+			console.log(Point.distance(p1, p2));
+			
+			//-------------------------------------------------------------//
+			//Sub classing with extends (inheritance)
+			class Animal { 
+			  constructor(name) {
+					this.name = name;
+			  }
+			  
+			  speak() {
+					console.log(this.name + ' , I am an animal.');
+			  }
+			}
+
+			class Dog extends Animal {
+			  speak() {
+					console.log(this.name + ' ,I am a dog.');
+			  }
+			}
+
+			var d = new Dog('Poppy');
+			d.speak();//Poppy , I am a dog.
+			
+			//-------------------------------------------------------//
+			//Super class calls with super
+
+			class Lion extends Animal {
+			  speak() {
+					super.speak();
+					console.log('of type lion.');
+			  }
+			}
+			
+			var l = new Lion('lio');
+			l.speak();//lio , I am an Animal , of type lion.
+			////////////
+			class Tiger extends Animal
+			{
+				constructor (name, age)
+				{
+					super(name);
+					//this.name=name;
+					this.age=age;
+				}
+				speak() {
+					super.speak();
+					console.log(this.name + ' , I am  a Tiger, and my age is ' + this.age);
+			  }
+
+			}
+
+			
+
+			var t=new Tiger("tt",55);
+			t.speak();
+
+			//More: 
+				//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+			
+			/*
+			Private members:
+				In ESnext, private class fields are defined using a hash # prefix:
+
+				class MyClass {
+
+					a = 1;          // .a is public
+					#b = 2;         // .#b is private
+					static #c = 3;  // .#c is private and static
+
+					incB() {
+						this.#b++;
+					}
+
+				}
+
+				const m = new MyClass();
+
+				m.incB(); // runs OK
+				m.#b = 0; // error - private property cannot be modified outside class
+			*/
+			//https://www.sitepoint.com/javascript-private-class-fields/
+			//More: 
+				//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+			
+				//New ESNext syntax
+				//https://www.sitepoint.com/javascript-private-class-fields/
+		</script>
+        
+    <head>
+    <body>
+		Classes!
+    </body>
+
+</html>
