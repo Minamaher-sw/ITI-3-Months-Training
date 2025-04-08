@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex3</title>
+    <link rel="stylesheet" href="./ex3.css">
+</head>
+<body>
+    <canvas width="600px" height="600px" id="can" ></canvas>
+    <script>
+        const canva =document.getElementById("can");
+        const context =canva.getContext("2d");
+       function sadFace()
+       {
+       
+        context.beginPath();
+        context.arc(150,150,100,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.arc(100,120,15,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+        
+        context.beginPath();
+        context.arc(190,120,15,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+        
+        context.beginPath();
+        context.arc(100,120,2,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.arc(190,120,2,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+
+       
+        context.beginPath();
+        context.moveTo(110,220);
+        context.quadraticCurveTo(155, 160, 190, 220);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.scale(2, 2);
+        context.stroke();
+        context.closePath();
+        
+       }
+
+       function smileFace()
+       {
+        context.beginPath();
+        context.arc(150,150,100,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.arc(100,120,15,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+        
+        context.beginPath();
+        context.arc(190,120,15,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+        
+        context.beginPath();
+        context.arc(100,120,2,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.arc(190,120,2,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.moveTo(110,200);
+        context.quadraticCurveTo(155, 260, 190, 200);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.scale(.5, .5);
+        // context.setTransform(1, 0, 0, 1, 0, 0);
+        context.stroke();
+        context.closePath();
+
+    
+       }
+       sadFace();
+
+       canva.onmouseout =function()
+        {
+            context.clearRect(0, 0, canva.width, canva.height);
+            sadFace()
+        }
+        canva.onmouseover=function()
+        {
+            context.clearRect(0, 0, canva.width, canva.height);
+            smileFace()
+        }
+    </script>
+</body>
+</html>
