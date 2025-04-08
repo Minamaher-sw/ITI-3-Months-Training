@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        input
+        {
+            width:30vw;
+            padding: 10px;
+            box-sizing: border-box;
+            margin: 10px 0px;
+        }
+        label
+        {
+            width:30vw;
+            padding: 10px;
+            box-sizing: border-box;
+            margin: 10px 0px 0px 0px;
+        }
+    </style>
+
+</head>
+<body>
+    <section>
+        <form >
+
+            <label for="Username">Username</label>
+            <input id="Username" name="Username" type="text" required>
+            <br>
+            <label for="Password">Password</label>
+            <input id="Password" type="password" name="password">
+            <br><label for="BirthDate">Birth Date</label>
+            <input id="BirthDate" type="date" >
+            <br><label for="Age ">Age </label>
+            <input id="Age" type="number"  min="20">
+            <br><label for="Favorite Color ">Favorite Color </label>
+            <input id="Favorite_Color " type="color">
+            <br><label for="SatisfactionRating">Satisfaction Rating</label>
+            <input id="Satisfaction_Rating" type="range" min="1" max="10">
+            <br>
+            <button type="submit">submit</button>
+    
+        </form>
+    </section>
+    
+</body>
+</html>
