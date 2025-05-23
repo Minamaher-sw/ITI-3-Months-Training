@@ -5,6 +5,7 @@ import {
     getAlluser,
     deleteUser,
     updateUser,
+    login
 } from "../controllers/user.js" 
 
 // users
@@ -19,7 +20,15 @@ UserRouter.post(
     }
 }
 );
-
+UserRouter.post("/login",async (req,res,next)=>{
+    try{
+        const result = await login(req.body);
+        res.json(result);
+    }
+    catch(error){
+        next({error ,status:401});
+    }
+})
 UserRouter.get(
     "/",
     async (req, res,next) => {
