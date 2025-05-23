@@ -1,5 +1,6 @@
 
 import {User} from '../models/user.js' ;
+import bcrypt from 'bcryptjs';
 const createUser = async (data)=>{
     // if (!fs.existsSync("../user.json")) {
     //         fs.writeFileSync("../user.json", "[]");
@@ -79,9 +80,23 @@ const updateUser =async (userId,data)=>{
     return updateUser;
 }
 
+const login =async (data)=>{
+    const {userName ,Password}=data ;
+    console.log(userName);
+    const user = await User.findOne({userName:userName});
+    console.log(user);
+    if(! user) 
+        {
+            throw "invalid login"
+        };
+    const valid = bcrypt.compareSync(Password ,user.Password);
+    console.log(valid);
+    return valid ;
+}
 export{
     createUser,
     getAlluser,
     deleteUser,
     updateUser,
+    login,
 }
