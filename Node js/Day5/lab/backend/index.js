@@ -1,5 +1,6 @@
 import express, { json } from "express";
 import cors from "cors"
+
 import  {UserRouter} from "./roots/user.js"
 import  {todoRouter} from  "./roots/todo.js"
 import {auth}  from "./middlewares/auth.js" ;
@@ -7,6 +8,7 @@ import {auth}  from "./middlewares/auth.js" ;
 import 'dotenv/config' ;
 const app = express();
 
+app.use(express.static('public'))
 app.use(express.json());
 app.use(cors());
 
