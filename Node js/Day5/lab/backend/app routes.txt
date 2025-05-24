@@ -1,0 +1,37 @@
+2 models =>  user model , todo model 
+
+
+model: user
+
+ACTION                      METHOD        ROUTE
+
+get all users                GET          /users
+get single user : id         GET          /users/:id
+edit single user : id        PATCH/PUT    /users/:id
+delete single user : id      DELETE       /users/:id
+create user                  POST         /users
+login                        POST         /users/login
+------------------------------------------------------------------
+
+model: todo
+
+{
+  title,
+  status
+}
+
+ACTION                      METHOD        ROUTE
+
+create todo                  POST         /todos
+get all todos                GET          /todos
+get single todo : id         GET          /todos/:id
+edit single todo : id        PATCH/PUT    /todos/:id
+delete single todo : id      DELETE       /todos/:id
+
+
+
+ACTION                         METHOD        ROUTE
+
+get all todos for user :id      GET           /users/:id/todos 
+                                              /todos?userId=:id
+
