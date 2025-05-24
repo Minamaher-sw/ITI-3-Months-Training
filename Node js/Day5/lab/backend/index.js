@@ -2,7 +2,9 @@ import express, { json } from "express";
 import cors from "cors"
 import  {UserRouter} from "./roots/user.js"
 import  {todoRouter} from  "./roots/todo.js"
+import {auth}  from "./middlewares/auth.js" ;
 
+import 'dotenv/config' ;
 const app = express();
 
 app.use(express.json());
@@ -17,11 +19,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/todos-app')
     .catch(err => console.error("MongoDB connection error:", err));
 
 app.use('/users', UserRouter);
+
+app.use(auth);
 app.use('/todos', todoRouter);
 
 app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).json({ error: err.message || "Internal server error" });
+    res.json(err);
 });
 
 app.listen(3000,()=>{
