@@ -18,11 +18,18 @@ const createTodo = async(data)=>{
     //     };
     //     tood.push(newToods);
     //     fs.writeFileSync("../toods.json", JSON.stringify(tood, null, 2));
-    const todo = await Todo.create(data);
-    return todo ;
+        const { title, userID } = data;
+        const todo = await Todo.create(
+            {
+                title,
+                status: 'new',
+                userID,
+            }
+        );
+        return todo ;
 }
 
-const getAllTodo=async ()=>{
+const getAllTodo=async (inuserID)=>{
     // const tood = JSON.parse(fs.readFileSync("../toods.json", "utf8"));
     //     const outPutArr = [];
     //     for (let userIndex of tood) {
@@ -36,11 +43,30 @@ const getAllTodo=async ()=>{
     //         console.log(newuser)
     //         outPutArr.push(newuser);
     //     }
-        const  outPutArr = await Todo.find();
+    const  outPutArr = await Todo.find({userID:inuserID}).populate("userID");
+    
+    return outPutArr ;
+    
+        
+}
+const getTodoByid=async (todoId)=>{
+    // const tood = JSON.parse(fs.readFileSync("../toods.json", "utf8"));
+    //     const outPutArr = [];
+    //     for (let userIndex of tood) {
+    //         const { id, title, status ,tags } = userIndex;
+    //         const newuser = {
+    //             _id:id,
+    //             title: title,
+    //             status: status,
+    //             tags:tags
+    //         };
+    //         console.log(newuser)
+    //         outPutArr.push(newuser);
+    //     }
+        const  outPutArr = await Todo.findOne({_id:todoId}).populate("userID");
         return outPutArr ;
 }
-
-const deleteTodo =(userId)=>{
+const deleteTodo =(todoId)=>{
     // const tood = JSON.parse(fs.readFileSync("../toods.json", "utf8"));
     // if(tood.length > 0 )
     // {   const filterTodo = tood.filter(tood => tood.id != toodId);
@@ -50,10 +76,10 @@ const deleteTodo =(userId)=>{
     // else{
     //     return "no user founded";
     // }
-    return Todo.deleteOne({_id:userId});
+    return Todo.deleteOne({_id:todoId});
 }
 
-const updateTodo =(userId,data)=>{
+const updateTodo =(todoId,data)=>{
     // const toodId = req.params.id;
     // const tood = JSON.parse(fs.readFileSync("../toods.json", "utf8"));
     // if(tood.length > 0 )
@@ -72,7 +98,7 @@ const updateTodo =(userId,data)=>{
     // else{
     // }
     const updateTodo = Todo.findByIdAndUpdate(
-        { _id: userId },
+        { _id: todoId },
         { $set: data },
         { new: true, runValidators: true }
     );
@@ -84,4 +110,5 @@ export{
     getAllTodo,
     deleteTodo,
     updateTodo,
+    getTodoByid
 }
