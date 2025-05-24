@@ -11,6 +11,7 @@ import {
 // users
 UserRouter.post(
     "/",
+    // to check user role
     async (req, res, next) => {
     try {
     const user = await createUser(req.body);
@@ -20,7 +21,9 @@ UserRouter.post(
     }
 }
 );
-UserRouter.post("/login",async (req,res,next)=>{
+UserRouter.post(
+    "/login",
+    async (req,res,next)=>{
     try{
         const result = await login(req.body);
         res.json(result);
@@ -31,6 +34,7 @@ UserRouter.post("/login",async (req,res,next)=>{
 })
 UserRouter.get(
     "/",
+    
     async (req, res,next) => {
         try{
             const userList = await getAlluser();
@@ -41,7 +45,8 @@ UserRouter.get(
     
     }
 );
-UserRouter.delete("/:id",
+UserRouter.delete(
+    "/:id",
     async (req,res,next)=>{
         try{
             const userId = req.params.id;
@@ -53,7 +58,8 @@ UserRouter.delete("/:id",
         }
 })
 
-UserRouter.patch("/:id",
+UserRouter.patch(
+    "/:id",
     async (req,res,next)=>{
         try{
             const userId = req.params.id;
