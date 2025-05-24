@@ -13,6 +13,11 @@ const todoSchema = new Schema({
         type: String,
         enum: ['new', 'done'],
     },
+    userID:{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:"User",
+        required:true,
+    }
 });
 
 
