@@ -35,6 +35,11 @@ const userSchema = new Schema({
     },
     username: {
         type: String,
+    },
+    role:{
+        type:String,
+        enum:["admin","user"],
+        default:"user"
     }
 },{
     // apply on any object ret from user model
