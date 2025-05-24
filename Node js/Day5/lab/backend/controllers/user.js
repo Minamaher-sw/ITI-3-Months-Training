@@ -1,6 +1,7 @@
 
 import {User} from '../models/user.js' ;
 import bcrypt from 'bcryptjs';
+import  jwt from 'jsonwebtoken';
 const createUser = async (data)=>{
     // if (!fs.existsSync("../user.json")) {
     //         fs.writeFileSync("../user.json", "[]");
@@ -90,8 +91,20 @@ const login =async (data)=>{
             throw "invalid login"
         };
     const valid = bcrypt.compareSync(Password ,user.Password);
-    console.log(valid);
-    return valid ;
+    if(valid){
+        const token =jwt.sign(
+            // payload
+            {
+                username:user.username ,
+                id:user._id ,
+            },
+            // private key
+            process.env.JWT_SECRET,
+            // expires data of token 
+            {expiresIn:"1d"}
+        )
+        return token ;
+    }
 }
 export{
     createUser,
