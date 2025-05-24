@@ -5,6 +5,7 @@ import {
     getAllTodo,
     deleteTodo,
     updateTodo,
+    getAllTodoQuery
 } from "../controllers/todo.js"
 
 // todo 
@@ -22,11 +23,18 @@ todoRouter.post( "/",
 todoRouter.get(
     "/",
     async (req, res,next) => {
-        try{
-            const todoList =await getAllTodo();
+        if(req.query){
+            const {limit , status} =req.query
+            const todoList =await getAllTodoQuery({limit, status});
             res.json(todoList);
-        }catch(error){
-            next(error)
+        }
+        else{
+            try{
+                const todoList =await getAllTodo();
+                res.json(todoList);
+            }catch(error){
+                next(error)
+            }
         }
     }
 );
