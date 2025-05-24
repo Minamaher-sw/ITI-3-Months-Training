@@ -5,7 +5,8 @@ import {
     getAllTodo,
     deleteTodo,
     updateTodo,
-    getTodoByid
+    getTodoByid,
+    getAllTodoQuery
 } from "../controllers/todo.js"
 
 import {authorize} from "../middlewares/authorize.js";
@@ -27,23 +28,28 @@ todoRouter.post(
 
 todoRouter.get(
     "/",
-    authorize(["admin","user"]),
-    async (req, res,next) => {
-        try{
-            // get all todo that special to this user 
-            const userId =req.user._id;
-            console.log(userId)
-            const todoList =await getAllTodo(userId);
-            console.log(todoList);
-            res.json(todoList);
-        }catch(error){
-            next(error)
+    authorize(["admin","user","reporter"]),
+    async (req, res, next) => {
+    try {
+        const userId = req.user._id;
+
+        if (req.query && (req.query.limit || req.query.status)) {
+        const { limit, status } = req.query;
+        const todoList = await getAllTodoQuery({ limit, status, userId });
+        
+        return res.json(todoList); //
         }
+        const todoList = await getAllTodo(userId);
+        return res.json(todoList);
+    } catch (error) {
+        return next(error);
     }
+}
+
 );
 todoRouter.get(
     "/:id",
-    authorize(["admin"]),
+    authorize(["admin","reporter"]),
     async (req, res,next) => {
         try{
             const todoList =await getTodoByid(req.params.id);
