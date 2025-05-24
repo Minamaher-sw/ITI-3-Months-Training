@@ -44,10 +44,26 @@ const getAllTodo=async (inuserID)=>{
     //         outPutArr.push(newuser);
     //     }
     const  outPutArr = await Todo.find({userID:inuserID}).populate("userID");
-    
     return outPutArr ;
-    
-        
+}
+const getAllTodoQuery=async (queryObj)=>{
+    // const tood = JSON.parse(fs.readFileSync("../toods.json", "utf8"));
+    //     const outPutArr = [];
+    //     for (let userIndex of tood) {
+    //         const { id, title, status ,tags } = userIndex;
+    //         const newuser = {
+    //             _id:id,
+    //             title: title,
+    //             status: status,
+    //             tags:tags
+    //         };
+    //         console.log(newuser)
+    //         outPutArr.push(newuser);
+    //     }
+        const limit1 = parseInt(queryObj.limit);
+        const status= queryObj.status;
+        const  outPutArr = await Todo.find({status :status,userID :queryObj.userId}).limit(limit1);
+        return outPutArr ;
 }
 const getTodoByid=async (todoId)=>{
     // const tood = JSON.parse(fs.readFileSync("../toods.json", "utf8"));
@@ -110,5 +126,6 @@ export{
     getAllTodo,
     deleteTodo,
     updateTodo,
-    getTodoByid
+    getTodoByid,
+    getAllTodoQuery
 }
