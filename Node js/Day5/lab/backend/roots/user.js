@@ -7,7 +7,7 @@ import {
     updateUser,
     login
 } from "../controllers/user.js" 
-
+import {authorize} from "../middlewares/authorize.js";
 // users
 UserRouter.post(
     "/",
@@ -34,9 +34,9 @@ UserRouter.post(
 })
 UserRouter.get(
     "/",
-    
     async (req, res,next) => {
         try{
+            console.log("user")
             const userList = await getAlluser();
             res.json(userList);
         }catch(error){
@@ -60,6 +60,7 @@ UserRouter.delete(
 
 UserRouter.patch(
     "/:id",
+    authorize(["user"]),
     async (req,res,next)=>{
         try{
             const userId = req.params.id;
